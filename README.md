@@ -1,5 +1,8 @@
 # Supabase Admin Template
 
-Requirements
-- Supabase auth
-- 
+## Setup
+### Database
+Introspect your current database by running
+```bash
+pnpm db:introspect
+```

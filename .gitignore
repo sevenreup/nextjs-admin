@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -34,3 +35,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dont push sample data
+# TODO: Remove this from the ignore list when we clone the template (Add to doc)
+/drizzle
+/src/lib/models/schema.ts
+/src/lib/models/table-map.ts

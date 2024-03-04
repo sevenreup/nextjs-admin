@@ -14,7 +14,7 @@ export const adminNavItems: NavItem[] = [
     label: "",
     icon: Users,
     variant: "ghost",
-    href: "/admin",
+    href: "/admin/users",
   },
   {
     title: "Form",
