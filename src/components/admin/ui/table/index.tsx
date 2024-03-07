@@ -31,7 +31,7 @@ function generateColumns<T>(data: any[]): ColumnDef<T>[] {
 async function AdminTable<T>({ dataMeta, columns }: Props<T>) {
   const data = await getData(dataMeta);
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <AdminTableContent
         data={data}
         columns={columns ? columns : generateColumns(data)}

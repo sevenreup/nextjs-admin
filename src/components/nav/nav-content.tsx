@@ -53,15 +53,14 @@ const NavContent = ({
           }}
           className={cn(
             isCollapsed &&
-              "min-w-[50px] transition-all duration-300 ease-in-out"
+              "min-w-[50px] transition-all duration-300 ease-in-out",
+            "hidden md:block"
           )}
         >
           <Nav isCollapsed={isCollapsed} links={adminNavItems} />
         </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel>
-          <div className="p-8">{children}</div>
-        </ResizablePanel>
+        <ResizableHandle withHandle className="hidden md:block" />
+        <ResizablePanel className="p-2 md:p-8">{children}</ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
   );
