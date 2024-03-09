@@ -16,16 +16,17 @@ import {
 } from "@tanstack/react-table";
 import React from "react";
 import { DataTablePagination } from "./pagination";
+import { TableColumnDef, toColumnDef } from "./def";
 
 type DataTableProps = {
-  columns: any[];
+  columns: TableColumnDef<any>[];
   data: any[];
 };
 
 const AdminTableContent = ({ data, columns }: DataTableProps) => {
   const table = useReactTable({
     data,
-    columns,
+    columns: toColumnDef(columns),
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });

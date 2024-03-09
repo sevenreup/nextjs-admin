@@ -2,7 +2,7 @@ import { DBTables, dbTableMap } from "@/lib/models/table-map";
 import { db } from "@/lib/supabase/db";
 import React from "react";
 import AdminTableContent from "./table";
-import { ColumnDef } from "@tanstack/react-table";
+import { TableColumnDef } from "./def";
 
 type DataProps = {
   resource?: DBTables;
@@ -12,10 +12,10 @@ type DataProps = {
 
 type Props<T> = {
   dataMeta: DataProps;
-  columns?: ColumnDef<T>[];
+  columns?: TableColumnDef<T>[];
 };
 
-function generateColumns<T>(data: any[]): ColumnDef<T>[] {
+function generateColumns<T>(data: any[]): TableColumnDef<T>[] {
   if (data.length === 0) {
     return [];
   }
@@ -24,7 +24,7 @@ function generateColumns<T>(data: any[]): ColumnDef<T>[] {
     return {
       accessorKey: key,
       header: key,
-    };
+    } as any;
   });
 }
 
@@ -63,6 +63,7 @@ const getData = async ({
 const fetchTableDataFromResource = async (resource: DBTables) => {
   const table = dbTableMap[resource];
   const data = await db.select().from(table);
+
   return data;
 };
 
